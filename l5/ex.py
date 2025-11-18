@@ -8,13 +8,13 @@ b=9
 for i in range(a, b):
     if i > 1:
         isPrime = True
-        if i == 2:
-            print(i)
-        else:
-            for j in range(2, i):
-                if i%j==0:
-                    isPrime = False
-                    break
+        # if i == 2:
+        #     print(i)
+        # else:
+        for j in range(2, i):
+            if i%j==0:
+                isPrime = False
+                break
         if isPrime:
             print(i)
 
