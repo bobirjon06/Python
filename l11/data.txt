@@ -1,0 +1,20 @@
+[
+    {
+        "ism": "Otabek",
+        "kursi": 2,
+        "yoshi": 23,
+        "sana": "23.05.2000",
+        "True": true,
+        "None": null,
+        "list": [
+            3,
+            4,
+            5
+        ],
+        "tuple": [
+            4,
+            5,
+            6
+        ]
+    }
+]

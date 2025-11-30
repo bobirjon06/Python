@@ -1,0 +1,123 @@
+[
+    {
+        "city": "Toshkent",
+        "date": "2025-09-18",
+        "temperature": 31,
+        "humidity": 38
+    },
+    {
+        "city": "Samarqand",
+        "date": "2025-09-18",
+        "temperature": 28,
+        "humidity": 42
+    },
+    {
+        "city": "Buxoro",
+        "date": "2025-09-18",
+        "temperature": 33,
+        "humidity": 35
+    },
+    {
+        "city": "Xiva",
+        "date": "2025-09-18",
+        "temperature": 34,
+        "humidity": 30
+    },
+    {
+        "city": "Nukus",
+        "date": "2025-09-18",
+        "temperature": 29,
+        "humidity": 45
+    },
+    {
+        "city": "Farg‘ona",
+        "date": "2025-09-18",
+        "temperature": 27,
+        "humidity": 50
+    },
+    {
+        "city": "Andijon",
+        "date": "2025-09-18",
+        "temperature": 26,
+        "humidity": 48
+    },
+    {
+        "city": "Namangan",
+        "date": "2025-09-18",
+        "temperature": 25,
+        "humidity": 55
+    },
+    {
+        "city": "Jizzax",
+        "date": "2025-09-18",
+        "temperature": 30,
+        "humidity": 40
+    },
+    {
+        "city": "Sirdaryo",
+        "date": "2025-09-18",
+        "temperature": 32,
+        "humidity": 36
+    },
+    {
+        "city": "Qashqadaryo",
+        "date": "2025-09-18",
+        "temperature": 29,
+        "humidity": 44
+    },
+    {
+        "city": "Surxondaryo",
+        "date": "2025-09-18",
+        "temperature": 35,
+        "humidity": 28
+    },
+    {
+        "city": "Navoiy",
+        "date": "2025-09-18",
+        "temperature": 33,
+        "humidity": 32
+    },
+    {
+        "city": "Qoraqalpog‘iston",
+        "date": "2025-09-18",
+        "temperature": 28,
+        "humidity": 46
+    },
+    {
+        "city": "Chirchiq",
+        "date": "2025-09-18",
+        "temperature": 27,
+        "humidity": 52
+    },
+    {
+        "city": "Angren",
+        "date": "2025-09-18",
+        "temperature": 26,
+        "humidity": 54
+    },
+    {
+        "city": "Bekobod",
+        "date": "2025-09-18",
+        "temperature": 30,
+        "humidity": 41
+    },
+    {
+        "city": "Qo‘qon",
+        "date": "2025-09-18",
+        "temperature": 27,
+        "humidity": 49
+    },
+    {
+        "city": "Termiz",
+        "date": "2025-09-18",
+        "temperature": 36,
+        "humidity": 27
+    },
+
+    {
+        "city": "Shahrisabz",
+        "date": "2025-09-18",
+        "temperature": 29,
+        "humidity": 43
+    }
+]

@@ -1,0 +1,37 @@
+[
+    {
+        "name": "Cheeseburger",
+        "price": 25000,
+        "discount": 0
+    },
+    {
+        "name": "Pepperoni",
+        "price": 55000,
+        "discount": 0
+    },
+    {
+        "name": "Greek Salad",
+        "price": 20000,
+        "discount": 0
+    },
+    {
+        "name": "French Fries",
+        "price": 10800.0,
+        "discount": 1
+    },
+    {
+        "name": "Salmon Roll",
+        "price": 72000,
+        "discount": 0
+    },
+    {
+        "name": "Cheesecake",
+        "price": 35000,
+        "discount": 0
+    },
+    {
+        "name": "Pizza",
+        "price": 55000,
+        "discount": 0
+    }
+]
