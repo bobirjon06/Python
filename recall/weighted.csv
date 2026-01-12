@@ -1,0 +1,8 @@
+Unnamed: 0,Day,Muscle,Exercise,Sets,Reps,Weight,HighVolume,Weighted
+,Monday,Chest,Bench Press,4,10,60,True,True
+,Tuesday,Back,Deadlift,3,6,80,False,True
+,Wednesday,Legs,Squat,4,10,70,True,True
+,Wednesday,Legs,Lunge,3,12,30,False,True
+,Thursday,Shoulders,Shoulder Press,4,10,25,True,True
+,Thursday,Shoulders,Lateral Raise,3,12,10,False,True
+,Friday,Arms,Bicep Curl,4,12,15,True,True

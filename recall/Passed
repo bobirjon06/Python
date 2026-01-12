@@ -1,0 +1,7 @@
+Name,Age,Major,Score,HoursStudied,Passed,HardWorker
+Alice,20,CS,85,10,True,True
+Charlie,21,Physics,78,7,True,False
+Diana,19,CS,92,12,True,True
+Fiona,20,Physics,88,11,True,True
+George,21,CS,73,8,True,False
+Hannah,22,Math,95,14,True,True
