@@ -1,56 +1,73 @@
-from itertools import product
-
-from PyQt5.QtWidgets import QApplication, QWidget, QListWidget, QVBoxLayout, QPushButton, QTableWidget, \
-    QTableWidgetItem, QGroupBox, QSpinBox, QComboBox
+from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QPushButton, QTableWidget, QTableWidgetItem, QComboBox
 import pandas as pd
 import numpy as np
 
 class MainWind(QWidget):
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+    def __init__(self):
+        super().__init__()
         self.resize(950, 450)
-        self.lst = QTableWidget()
-        dt = self.read_data()
-        self.lst.setRowCount(dt.shape[0])
-        self.lst.setColumnCount(dt.shape[1])
-        self.lst.setHorizontalHeaderLabels(dt.columns)
-        self.btn = QPushButton("Load All")
-        self.grp = QComboBox()
-        self.grp.addItems(["All", "Chest", "Back", "Legs", "Shoulders", "Arms", "Full Body"])
-        self.btn.clicked.connect(self.load_data)
-        v = QVBoxLayout()
-        v.addWidget(self.lst)
-        v.addWidget(self.btn)
-        v.addWidget(self.grp)
-        self.setLayout(v)
+
+        self.table = QTableWidget()
+
+        self.btn_load = QPushButton("Load Data")
+        self.btn_save = QPushButton("Save CSV")
+
+        self.filter_box = QComboBox()
+        self.filter_box.addItems(["All", "Chest", "Back", "Legs", "Shoulders", "Arms", "Full Body"])
+
+        self.sort_box = QComboBox()
+        self.sort_box.addItems(["Default", "Weight Ascending", "Weight Descending"])
+        layout = QVBoxLayout()
+        layout.addWidget(self.table)
+        layout.addWidget(self.btn_load)
+        layout.addWidget(self.filter_box)
+        layout.addWidget(self.sort_box)
+        layout.addWidget(self.btn_save)
+        self.setLayout(layout)
+
+        self.df = self.read_data()
+        self.df_view = self.df.copy()
+
+        self.btn_load.clicked.connect(self.load_data)
+        self.filter_box.currentTextChanged.connect(self.load_data)
+        self.sort_box.currentTextChanged.connect(self.load_data)
+        self.btn_save.clicked.connect(self.save_data)
+
     def read_data(self):
         df = pd.read_csv("gym_log.csv")
-        nums = df[["Sets", "Reps", "Weight"]]
-        arr = nums.to_numpy()
-        totals = np.prod(arr, axis=1)
-        df["TotalWeight"] = totals
+        df["TotalWeight"] = df["Sets"] * df["Reps"] * df["Weight"]
         return df
+
     def load_data(self):
-        df = self.read_data()
-        self.lst.clear()
-        self.lst.setRowCount(df.shape[0])
-        self.lst.setColumnCount(df.shape[1])
-        self.lst.setHorizontalHeaderLabels(df.columns)
-        if self.grp.currentText()=="All":
-            for i in range(df.shape[0]):
-                for j in range(df.shape[1]):
-                    # print("===")
-                    value = str(df.iloc[i, j])
-                    self.lst.setItem(i,j,QTableWidgetItem(value))
-                    # print("===")
-                    # print(df.loc[i][j])
-        else:
-            df1 = df[df["Muscle"]==self.grp.currentText()]
-            for i in range(df1.shape[0]):
-                for j in range(df1.shape[1]):
-                    # if df.iloc[i]["Muscle"]==self.grp.currentText():
-                        value = str(df.iloc[i, j])
-                        self.lst.setItem(i,j,QTableWidgetItem(value))
+        df_view = self.df.copy()
+        filter_choice = self.filter_box.currentText()
+        if filter_choice != "All":
+            df_view = df_view[df_view["Muscle"] == filter_choice]
+
+        sort_choice = self.sort_box.currentText().lower()
+        if "asc" in sort_choice:
+            df_view = df_view.sort_values("Weight", ascending=True)
+        elif "desc" in sort_choice:
+            df_view = df_view.sort_values("Weight", ascending=False)
+
+        self.df_view = df_view.copy()
+
+        self.table.clear()
+        self.table.setRowCount(df_view.shape[0])
+        self.table.setColumnCount(df_view.shape[1])
+        self.table.setHorizontalHeaderLabels(df_view.columns)
+
+        for i in range(df_view.shape[0]):
+            for j in range(df_view.shape[1]):
+                value = str(df_view.iloc[i, j])
+                self.table.setItem(i, j, QTableWidgetItem(value))
+
+    def save_data(self):
+        name = self.filter_box.currentText()
+        self.df_view.to_csv(f"{name}.csv", index=False)
+        print("Saved filtered & sorted data to filtered_sorted_gym_log.csv")
+
+
 app = QApplication([])
 wind = MainWind()
 wind.show()

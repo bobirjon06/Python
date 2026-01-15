@@ -1,3 +1,4 @@
+import numpy as np
 import pandas as pd
 # df = pd.DataFrame([[1,2,3],[4,5,6], [7,8,9]], columns=['A', 'B', 'C'])
 # print(df.head())
@@ -29,4 +30,9 @@ df[df["Passed"]].to_csv("Passed.csv", index=False)
 df[df["Major"]=="CS"].to_csv("CS_Majors.csv", index=False)
 # print(df)
 # print(df.sort_values(["Score"], ascending=False))
-print(df["Age"])
+# print(df["Age"])
+
+df["AgeGroup"] = np.where(df["Age"]>20, "Adult", "Young")
+avg = df.groupby("AgeGroup")["Score"].mean()
+print(avg)
+print(df[df["Score"]>avg]["Name"])
